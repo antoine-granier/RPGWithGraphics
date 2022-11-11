@@ -1,12 +1,14 @@
 package lp.controller;
 
 import lp.rooms.Map;
+import lp.view.GameView;
 
 import java.io.IOException;
 
 public class GameMainController {
     public static void main(String[] args) throws IOException {
         Map data = new Map();
+        GameView view = GameView.initGraphics(1200, 800, data);
         GameMainController.mainLoop(data);
     }
 
