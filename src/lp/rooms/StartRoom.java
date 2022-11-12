@@ -6,9 +6,18 @@ import java.security.InvalidParameterException;
 import java.util.Scanner;
 
 public class StartRoom implements Room{
+
+    private boolean chooseCast;
+
+    public StartRoom() {
+        this.chooseCast = false;
+    }
+
     @Override
     public boolean roomEvent(Player player) {
-        String name = "";
+        //System.out.println(chooseCast);
+        return chooseCast;
+        /*String name = "";
         int choice;
         try {
             Scanner sc = new Scanner(System.in);
@@ -44,6 +53,10 @@ public class StartRoom implements Room{
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return false;*/
+    }
+
+    public void choosedCast() {
+        chooseCast = true;
     }
 }

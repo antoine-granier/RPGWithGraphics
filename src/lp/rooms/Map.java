@@ -276,6 +276,14 @@ public class Map {
         return player;
     }
 
+    public int getSizeMap() {
+        return rooms.length;
+    }
+
+    public int getIntPosition() {
+        return currentRoom.i() + (rooms.length * currentRoom.j());
+    }
+
     public String displayMap() {
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = rooms.length - 1; i >= 0; i--) {
