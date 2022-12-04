@@ -1,5 +1,6 @@
 package lp.monster.action;
 
+import lp.Log;
 import lp.monster.MonsterAction;
 import lp.monster.Opponent;
 import lp.player.Player;
@@ -16,7 +17,7 @@ public class StrengthAction implements MonsterAction {
     @Override
     public void doAction(Opponent opponent, Player player) {
         opponent.getStats().addStrength(strength);
-        System.out.println(opponent.getName() + " gains " + strength + " stack" + (strength > 1 ? "s" : "") + " of strength");
+        Log.getLog().addLog(opponent.getName() + " gains " + strength + " stack" + (strength > 1 ? "s" : "") + " of strength");
     }
 
     @Override

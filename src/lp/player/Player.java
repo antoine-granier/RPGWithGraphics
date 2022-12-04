@@ -95,8 +95,26 @@ public class Player {
         actualWeapon = inventory.get(index);
     }
 
+    public void changeWeapon(Weapon weapon) {
+        if(inventory.contains(weapon)) {
+            actualWeapon = weapon;
+        }
+    }
+
     public String getCast() {
         return cast;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public int getHp() {
+        return hp;
     }
 
     @Override

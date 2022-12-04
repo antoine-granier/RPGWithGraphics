@@ -1,5 +1,6 @@
 package lp.monster.action;
 
+import lp.Log;
 import lp.monster.MonsterAction;
 import lp.monster.Opponent;
 import lp.player.Player;
@@ -17,7 +18,7 @@ public class DamageAction implements MonsterAction {
         modifiedDamage = opponent.getStats().applyAttackerModifiers(modifiedDamage);
         modifiedDamage = player.getStats().applyDefenderModifiers(modifiedDamage);
         player.takeDamage(modifiedDamage);
-        System.out.println("You take " + modifiedDamage + " damage from " + opponent.getName());
+        Log.getLog().addLog("You take " + modifiedDamage + " damage from " + opponent.getName());
     }
 
     @Override

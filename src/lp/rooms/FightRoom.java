@@ -3,25 +3,26 @@ package lp.rooms;
 import lp.Randomizer;
 import lp.monster.*;
 import lp.player.Player;
-import lp.weapon.Weapon;
+import lp.view.GameView;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.TreeMap;
 
 public class FightRoom implements Room {
     private TreeMap<Integer, Opponent> opponents;
     private int numberOfOpponents;
-    private Player player;
+    private final Player player;
     private boolean chooseWeapon;
+    private boolean loaded;
 
     public FightRoom(Player player) {
         this.opponents = new TreeMap<Integer, Opponent>();
         numberOfOpponents = 0;
         this.player = player;
         this.chooseWeapon = false;
+        this.loaded = false;
         int number = Randomizer.randomInt(0, 6);
         switch (number) {
             case 0:
@@ -82,6 +83,10 @@ public class FightRoom implements Room {
         return player;
     }
 
+    public void isLoaded() {
+        loaded = true;
+    }
+
     //update stats each turn
     private void statsUpdate() {
         player.getStats().turnUpdate();
@@ -90,8 +95,8 @@ public class FightRoom implements Room {
         }
     }
 
-    public boolean roomEvent(Player player) throws IOException {
-        if(!chooseWeapon) {
+    public boolean roomEvent(Player player, GameView view) throws IOException {
+        /*if(!chooseWeapon) {
             try {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("---------Inventory---------");
@@ -109,6 +114,9 @@ public class FightRoom implements Room {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }*/
+        if(!loaded) {
+            view.chooseWeapon();
         }
         for(Map.Entry<Integer, Opponent> entry : opponents.entrySet()) {
             entry.getValue().executeMove(entry.getValue(), player);

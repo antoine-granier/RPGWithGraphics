@@ -1,5 +1,6 @@
 package lp.monster.action;
 
+import lp.Log;
 import lp.monster.MonsterAction;
 import lp.monster.Opponent;
 import lp.player.Player;
@@ -15,7 +16,7 @@ public class RitualAction implements MonsterAction {
     @Override
     public void doAction(Opponent opponent, Player player) {
         opponent.getStats().addRitual(ritual);
-        System.out.println(opponent.getName() + " gains " + ritual + " stack" + (ritual > 1 ? "s" : "") + " of ritual");
+        Log.getLog().addLog(opponent.getName() + " gains " + ritual + " stack" + (ritual > 1 ? "s" : "") + " of ritual");
     }
 
     @Override

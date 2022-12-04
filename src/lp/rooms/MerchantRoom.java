@@ -1,6 +1,7 @@
 package lp.rooms;
 
 import lp.player.Player;
+import lp.view.GameView;
 import lp.weapon.*;
 
 import java.util.ArrayList;
@@ -17,8 +18,8 @@ public class MerchantRoom implements Room {
     }
 
     @Override
-    public boolean roomEvent(Player player) {
-        if(!loaded) {
+    public boolean roomEvent(Player player, GameView view) {
+        if (!loaded) {
             switch (player.getCast()) {
                 case "Barbarian":
                     shop.add(new Axe());
@@ -35,7 +36,7 @@ public class MerchantRoom implements Room {
             }
             loaded = true;
         } else {
-            try {
+            /*try {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("Do you want to buy a weapon ? (yes : 0, no : 1)");
                 int choice = sc.nextInt();
@@ -67,6 +68,9 @@ public class MerchantRoom implements Room {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            return true;
+        }*/
+            view.MerchantView(shop);
             return true;
         }
         return false;

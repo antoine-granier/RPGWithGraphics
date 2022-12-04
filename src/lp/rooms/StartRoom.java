@@ -1,9 +1,7 @@
 package lp.rooms;
 
 import lp.player.Player;
-
-import java.security.InvalidParameterException;
-import java.util.Scanner;
+import lp.view.GameView;
 
 public class StartRoom implements Room{
 
@@ -14,8 +12,9 @@ public class StartRoom implements Room{
     }
 
     @Override
-    public boolean roomEvent(Player player) {
+    public boolean roomEvent(Player player, GameView view) {
         //System.out.println(chooseCast);
+        System.out.println("");
         return chooseCast;
         /*String name = "";
         int choice;

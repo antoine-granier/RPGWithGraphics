@@ -1,5 +1,6 @@
 package lp.monster.action;
 
+import lp.Log;
 import lp.monster.*;
 import lp.player.Player;
 import lp.rooms.FightRoom;
@@ -23,7 +24,7 @@ public class SplitAction implements MonsterAction{
             ((FightRoom) Map.getCurrentRoom()).addOpponent(new SpikeSlimeM(slimeLife));
             ((FightRoom) Map.getCurrentRoom()).addOpponent(new SpikeSlimeM(slimeLife));
         }
-        System.out.println(opponent.getName() + " splits!");
+        Log.getLog().addLog(opponent.getName() + " splits!");
     }
 
     @Override

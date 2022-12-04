@@ -92,8 +92,56 @@ public class Map {
         return rooms[currentRoom.i()][currentRoom.j()];
     }
 
-    public static Tuple getRoom() {
-        return currentRoom;
+    public static int getX() {
+        return currentRoom.i();
+    }
+
+    public static int getY()  {
+        return currentRoom.j();
+    }
+
+    /*public static int[] getDirections() {
+        //left bottom top right
+        int[] directions = {0,0,0,0};
+        int x = currentRoom.i();
+        int y = currentRoom.j();
+        if(x != 0) {
+            directions[2] = 1;
+        }
+        if(x != rooms.length - 1) {
+            directions[1] = 1;
+        }
+        if(y != 0) {
+            directions[0] = 1;
+        }
+        if(y != rooms.length - 1) {
+            directions[3] = 1;
+        }
+        return directions;
+    }*/
+
+    public static void moveLeft() {
+        if(currentRoom.j() != 0) {
+            nextRoom(currentRoom.i(), currentRoom.j() - 1);
+        }
+    }
+
+    public static void moveBottom() {
+        if(currentRoom.i() != 0) {
+            nextRoom(currentRoom.i() - 1, currentRoom.j());
+        }
+    }
+
+    public static void moveTop() {
+        if(currentRoom.i() != rooms.length - 1) {
+            nextRoom(currentRoom.i() + 1, currentRoom.j());
+        }
+    }
+
+    public static void moveRight() {
+        if(currentRoom.j() != rooms.length - 1) {
+            nextRoom(currentRoom.i(), currentRoom.j() + 1);
+        }
     }
 
     public static void move() {
@@ -280,7 +328,7 @@ public class Map {
         return rooms.length;
     }
 
-    public int getIntPosition() {
+    public static int getIntPosition() {
         return currentRoom.i() + (rooms.length * currentRoom.j());
     }
 

@@ -1,5 +1,6 @@
 package lp.monster.action;
 
+import lp.Log;
 import lp.monster.MonsterAction;
 import lp.monster.Opponent;
 import lp.player.Player;
@@ -15,7 +16,7 @@ public class WeakAction implements MonsterAction {
     @Override
     public void doAction(Opponent opponent, Player player) {
         opponent.getStats().addWeak(weak);
-        System.out.println(opponent.getName() + " applies " + weak + " stack" + (weak > 1 ? "s" : "") + " of weak to you");
+        Log.getLog().addLog(opponent.getName() + " applies " + weak + " stack" + (weak > 1 ? "s" : "") + " of weak to you");
     }
 
     @Override
